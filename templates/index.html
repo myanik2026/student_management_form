@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Registration</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: green;
+        }
+
+        .container {
+            width: 95%;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            background-color: green;
+        }
+
+        .form-section {
+            width: 45%;
+            float: left;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 250px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .table-section {
+            width: 50%;
+            float: right;
+        }
+
+        table {
+            width: 100%;
+            background-color: white;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+
+        .search {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Employee Registration</h1>
+
+    <div class="form-section">
+
+        <form action="/add" method="POST">
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name">
+            </div>
+
+            <div class="form-group">
+                <label>Lastname</label>
+                <input type="text" name="lastname">
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" name="age">
+            </div>
+
+            <div class="form-group">
+                <label>Contact</label>
+                <input type="text" name="contact">
+            </div>
+
+            <div class="form-group">
+                <label>Course</label>
+
+                <select name="course">
+                    <option>Select</option>
+                    <option>Python</option>
+                    <option>Java</option>
+                    <option>PHP</option>
+                    <option>Net</option>
+                    <option>AI</option>
+                    <option>ML</option>
+                    <option>DATAScience</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Deposit Fees</label>
+                <input type="number" name="deposit_fees">
+            </div>
+
+            <div class="form-group">
+                <label>Pending Fees</label>
+                <input type="number" name="pending_fees">
+            </div>
+
+            <button type="submit">Submit</button>
+            <button type="button">Delete</button>
+            <button type="button">Show</button>
+            <button type="button">Login</button>
+
+        </form>
+
+    </div>
+
+
+    <div class="table-section">
+
+        <div class="search">
+            <input type="text" placeholder="Search Course">
+            <button type="button">Search</button>
+            <button type="button">Update</button>
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                    <th>Contact</th>
+                    <th>Course</th>
+                    <th>Pending Fees</th>
+                    <th>Deposit Fees</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.lastname }}</td>
+                <td>{{ employee.age }}</td>
+                <td>{{ employee.contact }}</td>
+                <td>{{ employee.course }}</td>
+                <td>{{ employee.Pending_Fees }}</td>
+                <td>{{ employee.Deposite_Fees }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+                <!-- Employee records will appear here -->
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
